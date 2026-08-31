@@ -1,0 +1,18 @@
+-- Example 2: NAND and XOR combination
+-- Y = (A NAND B) XOR C
+
+entity ex2 is
+port (
+A : in std_logic;
+B : in std_logic;
+C : in std_logic;
+Y : out std_logic
+);
+end ex2;
+
+architecture structural of ex2 is
+signal S1 : std_logic;
+begin
+G1 : nand_gate port map (A, B, S1);
+G2 : xor_gate  port map (S1, C, Y);
+end structural;

@@ -1,0 +1,24 @@
+-- example1
+-- Y = (A AND B) OR NOT(C)
+
+entity circuit is
+port (
+A : in std_logic;
+B : in std_logic;
+C : in std_logic;
+Y : out std_logic
+);
+end circuit;
+
+architecture structural of circuit is
+
+signal N1 : std_logic;
+signal N2 : std_logic;
+
+begin
+
+G1 : and_gate port map (A, B, N1);
+G2 : not_gate port map (C, N2);
+G3 : or_gate  port map (N1, N2, Y);
+
+end structural;

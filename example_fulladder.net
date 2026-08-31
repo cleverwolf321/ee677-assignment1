@@ -1,0 +1,26 @@
+-- Example: 1-bit Full Adder
+-- SUM = A xor B xor CI
+-- COUT = (A and B) or ( (A xor B) and CI )
+
+entity fulladder is
+port (
+A : in std_logic;
+B : in std_logic;
+CI : in std_logic;
+SUM : out std_logic;
+COUT : out std_logic
+);
+end fulladder;
+
+architecture structural of fulladder is
+signal N1 : std_logic; -- A xor B
+signal N2 : std_logic; -- A and B
+signal N3 : std_logic; -- N1 and CI
+begin
+G1 : xor_gate port map (A, B, N1);
+G2 : xor_gate port map (N1, CI, SUM);
+G3 : and_gate port map (A, B, N2);
+G4 : and_gate port map (N1, CI, N3);
+G5 : or_gate  port map (N2, N3, COUT);
+
+end structural;

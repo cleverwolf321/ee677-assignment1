@@ -1,0 +1,26 @@
+-- 2-to-1 Multiplexer
+-- Y = (A AND NOT S) OR (B AND S)
+
+entity mux2to1 is
+    port (
+        A : in std_logic;
+        B : in std_logic;
+        S : in std_logic;
+        Y : out std_logic
+    );
+end mux2to1;
+
+architecture structural of mux2to1 is
+
+    signal N1 : std_logic;
+    signal N2 : std_logic;
+    signal N3 : std_logic;
+
+begin
+
+    G1 : not_gate port map (S, N1);
+    G2 : and_gate port map (A, N1, N2);
+    G3 : and_gate port map (B, S, N3);
+    G4 : or_gate  port map (N2, N3, Y);
+
+end structural;
