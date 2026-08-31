@@ -43,6 +43,9 @@ OUTPUt
 
 -----
 <img width="809" height="217" alt="Screenshot 2026-08-31 at 10 16 32 PM" src="https://github.com/user-attachments/assets/fd905265-8ee2-4d8d-a7e6-d7895a88ecf3" />
+
+
+
 Notes
 -----
 - Default output is logic summary only: CSV + waveform SVG.
